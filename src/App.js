@@ -7,6 +7,7 @@ const max_attempts = 3;
 function App() {
   const [state, setState] = useState('')
   const [attempt, setAttempt] = useState(1)
+
   const gameController = p => {
     // console.log(p.completed)
     setAttempt(p.attempt)
@@ -16,6 +17,9 @@ function App() {
       setState("GAME OVER!!")
     }
     // console.log(state)
+  }
+  const refreshPage = () => {
+    window.location.reload();
   }
 
   return (
@@ -37,7 +41,10 @@ function App() {
       <div className="bigText">
         Guessed : {attempt - 1}
         <br></br>
-        {state}
+        {
+          state &&
+          <button onClick={refreshPage}>New Game</button>
+        }
       </div>
     </div >
   );
