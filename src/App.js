@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="main">
       <div className="bigText">
-        <div>
+        <div style={{ 'font-weight': 'bold' }}>
           GUESS THE WORD !
         </div>
         <div>
@@ -41,9 +41,12 @@ function App() {
       <div className="bigText">
         Guessed : {attempt - 1}
         <br></br>
+        <span style={{ 'color': 'red', 'font-weight': 'bold' }}>
+          {state}
+        </span>
         {
           state &&
-          <button onClick={refreshPage}>New Game</button>
+          <button className="button" onClick={refreshPage}>New Game</button>
         }
       </div>
     </div >
