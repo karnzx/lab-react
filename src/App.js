@@ -6,8 +6,10 @@ const word = "HELLO";
 const max_attempts = 3;
 function App() {
   const [state, setState] = useState('')
+  const [attempt, setAttempt] = useState(1)
   const gameController = p => {
     // console.log(p.completed)
+    setAttempt(p.attempt)
     if (p.completed) {
       setState("GUESS WELL!")
     } else if (p.attempt > p.max_attempts) {
@@ -33,6 +35,8 @@ function App() {
         <WordCard value={word} max_attempts={max_attempts} gameController={gameController} />
       }
       <div className="topCard">
+        Guessed : {attempt - 1}
+        <br></br>
         {state}
       </div>
     </div >
