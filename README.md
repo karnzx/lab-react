@@ -39,4 +39,8 @@
 ---
 
 Inline-style: 
-![alt text](https://github.com/karnzx/lab-react/blob/master/Capture.jpg "first page image")
+![alt text](https://github.com/karnzx/lab-react/blob/master/images/Capture.jpg "first page image")
+
+![alt text](https://github.com/karnzx/lab-react/blob/master/images/win.JPG "win")
+
+![alt text](https://github.com/karnzx/lab-react/blob/master/images/lost.JPG "lost") 
