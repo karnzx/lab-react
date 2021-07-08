@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CharacterCard from './CharacterCard';
 import _, { set } from 'lodash';
 
@@ -6,7 +6,7 @@ const prepareStateFromWord = (given_word, max_attempts) => {
     let word = given_word.toUpperCase();
     let chars = _.shuffle(Array.from(word));
     return {
-        word, chars, attempt: 1, guess: '', completed: false, max_attempts
+        word, chars, max_attempts, attempt: 1, guess: '', completed: false
     }
 
 }
@@ -29,6 +29,11 @@ export default function WordCard(props) {
             }
         }
     };
+
+    useEffect(() => {
+        props.gameController(state)
+
+    })
 
     return (
         <div>
