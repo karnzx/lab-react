@@ -19,8 +19,8 @@ function App() {
   }
 
   return (
-    <div>
-      <div className="topCard">
+    <div className="main">
+      <div className="bigText">
         <div>
           GUESS THE WORD !
         </div>
@@ -34,7 +34,7 @@ function App() {
       {
         <WordCard value={word} max_attempts={max_attempts} gameController={gameController} />
       }
-      <div className="topCard">
+      <div className="bigText">
         Guessed : {attempt - 1}
         <br></br>
         {state}
