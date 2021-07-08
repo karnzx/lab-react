@@ -1,17 +1,17 @@
-import Reac, { useState } from 'react';
+import React, { useState } from 'react';
 import CharacterCard from './CharacterCard';
 import _, { set } from 'lodash';
 
-const prepareStateFromWord = (given_word) => {
+const prepareStateFromWord = (given_word, max_attempts) => {
     let word = given_word.toUpperCase();
     let chars = _.shuffle(Array.from(word));
     return {
-        word, chars, attempt: 1, guess: '', completed: false
+        word, chars, attempt: 1, guess: '', completed: false, max_attempts
     }
 
 }
 export default function WordCard(props) {
-    const [state, setState] = useState(prepareStateFromWord(props.value))
+    const [state, setState] = useState(prepareStateFromWord(props.value, props.max_attempts))
     const activationHandler = c => {
         console.log(`${c} has been activated.`)
 
@@ -29,10 +29,11 @@ export default function WordCard(props) {
             }
         }
     };
+
     return (
         <div>
             {
-                state.chars.map((c, i) => <CharacterCard value={c} key={i} activationHandler={activationHandler} attempt={state.attempt} />)
+                state.chars.map((c, i) => <CharacterCard value={c} key={i} activationHandler={activationHandler} attempt={state.attempt} max_attempts={state.max_attempts} />)
             }
         </div>
     )

@@ -3,10 +3,11 @@ import './App.css'
 
 export default function CharacterCard(props) {
     const [active, setActive] = useState(false);
+    const [available, setAvailable] = useState(true);
     const attempt = useRef(props.attempt);
 
     const activate = () => {
-        if (!active) {
+        if (!active && available) {
             setActive(true);
             props.activationHandler(props.value)
         }
@@ -16,6 +17,9 @@ export default function CharacterCard(props) {
         if (attempt.current != props.attempt) {
             setActive(false)
             attempt.current = props.attempt
+        }
+        if (attempt.current > props.max_attempts) {
+            setAvailable(false)
         }
     })
 
